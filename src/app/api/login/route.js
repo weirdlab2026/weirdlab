@@ -8,7 +8,7 @@ export async function POST(request) {
     const { password } = await request.json();
 
     const client = await clientPromise;
-    const db = client.db('a2flab_admin');
+    const db = client.db('weirdlab_admin');
 
     const adminUser = await db.collection('admins').findOne({});
 
