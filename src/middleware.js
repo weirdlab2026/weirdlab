@@ -18,11 +18,7 @@ export async function middleware(request) {
 
   // 3. 토큰 없으면 튕기기
   if (!token) {
-    // API 요청일 때 리다이렉트 대신 401 에러를 주는 게 더 좋을 수도 있습니다.
-    // (프론트에서 JSON 에러 처리를 하기 위함)
-    // return NextResponse.json({ message: '인증 필요' }, { status: 401 }); 
-    
-    return redirectToHome; 
+    return NextResponse.json({ message: '관리자 인증 필요' }, { status: 401 });
   }
 
   try {
@@ -33,8 +29,13 @@ export async function middleware(request) {
     return NextResponse.next();
 
   } catch (error) {
-    console.error('인증 실패:', error);
-    return redirectToHome;
+    const response = NextResponse.json(
+      { message: '토큰 만료 또는 인증 실패' },
+      { status: 401 }
+    );
+
+    response.cookies.delete('admin_token');
+    return response;
   }
 }
 

@@ -6,9 +6,11 @@ export default function NewsCard({ newsData }) {
 
   const router = useRouter();
 
+  const sorted = newsData.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   return (
     <div>
-      {newsData.map((post) => (
+      {sorted.map((post) => (
         <div key={post._id} onClick={() => router.push(`/news/${post._id}`)}>
           <h2>{post.title}</h2>
           <p>{post.contents}</p>
