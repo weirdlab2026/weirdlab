@@ -16,7 +16,7 @@ export async function POST(request) {
   // 예시: uploads/1706512345678_xf3a2z.jpg
   const timestamp = Date.now();
   const randomString = Math.random().toString(36).substring(2, 7);
-  const uniqueFilename = `news_image/${timestamp}_${randomString}.${extension}`;
+  const uniqueFilename = `/${timestamp}_${randomString}.${extension}`;
 
   // 3. Vercel Blob에 새로운 이름으로 저장
   const blob = await put(uniqueFilename, request.body, {

@@ -85,7 +85,7 @@ export default function Post() {
       }
 
       // B. 텍스트 + 이미지 URL 저장
-      const res = await axios.post("/api/news", { 
+      const res = await axios.post("/api/projects", { 
         title, 
         contents,
         source,
@@ -94,7 +94,7 @@ export default function Post() {
 
       if (res.data.ok) {
         alert("등록되었습니다.");
-        router.push("/news");
+        router.push("/projects");
       } else {
         alert("작성 권한이 없습니다.");
       }

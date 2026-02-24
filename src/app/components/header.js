@@ -19,14 +19,14 @@ export default function Header() {
 
         <div className="Link_Container">
 
-          <Link href="/about" className={pathname === '/about' ? 'gnb_link_selected' : 'gnb_link'}>ABOUT</Link>
-          <Link href="/people" className={pathname === '/people' ? 'gnb_link_selected' : 'gnb_link'}>PEOPLE</Link>
+          <Link href="/about" className={pathname.startsWith('/about') ? 'gnb_link_selected' : 'gnb_link'}>ABOUT</Link>
+          <Link href="/people" className={pathname.startsWith('/people') ? 'gnb_link_selected' : 'gnb_link'}>PEOPLE</Link>
 
-          <Link href="/projects" className={pathname === '/projects' ? 'gnb_link_selected' : 'gnb_link'}>PROJECTS</Link>
+          <Link href="/projects" className={pathname.startsWith('/projects') ? 'gnb_link_selected' : 'gnb_link'}>PROJECTS</Link>
 
-          <Link href="/publications" className={pathname === '/publications' ? 'gnb_link_selected' : 'gnb_link'}>PUBLICATIONS</Link>
+          <Link href="/publications" className={pathname.startsWith('/publications') ? 'gnb_link_selected' : 'gnb_link'}>PUBLICATIONS</Link>
 
-          <Link href="/news" className={pathname === '/news' ? 'gnb_link_selected' : 'gnb_link'}>NEWS</Link>
+          <Link href="/news" className={pathname.startsWith('/news') ? 'gnb_link_selected' : 'gnb_link'}>NEWS</Link>
 
         </div>
         
