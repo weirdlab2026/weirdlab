@@ -13,7 +13,7 @@ export default function Header() {
 
       <div className="header_container">
 
-        <Link href="/" className='gnb_link'>
+        <Link href="/" className='logo_style'>
           <img src="/Logo_MainColor.png" height={24} alt="logo" />
         </Link>
 

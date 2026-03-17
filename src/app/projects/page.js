@@ -4,6 +4,7 @@ import Link from "next/link";
 import ProCard from "./proComponents";
 import connectDB from "@/lib/mongodb";
 import { cookies } from "next/headers";
+import styles from "../css/project.module.css";
 
 export default async function Project() {
 
@@ -16,16 +17,13 @@ export default async function Project() {
   console.log(post);
 
   return (
-      <div>
-          <h1>Project</h1>
-          <div>
-          test 테스트
-          <ProCard pubData={JSON.parse(JSON.stringify(post))}/>
+    <div className={styles.project_container}>
 
-          {
-            hasToken ? <Link href="/projects/post">post</Link> : null
-          }
-        </div>
-      </div>
-    );
+      <ProCard pubData={JSON.parse(JSON.stringify(post))}/>
+
+      {
+        hasToken ? <Link href="/projects/post">post</Link> : null
+      }
+    </div>
+  );
 }

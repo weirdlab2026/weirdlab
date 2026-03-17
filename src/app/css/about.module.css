@@ -1,0 +1,141 @@
+.about_text {
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 58px;
+  margin: 80px 0 150px 0;
+}
+
+.about_container {
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+  margin-bottom: 100px;
+}
+
+.introduce_container {
+  display: flex;
+}
+
+.introduce_text {
+  font-size: 40px;
+  font-weight: 600;
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.introduce_desc {
+  color: #555;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  margin-left: 297px;
+}
+
+.research_container {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  padding: 40px 0;
+  border-top: 1px solid #000;
+  cursor: pointer;
+  margin-left: 297px;
+  align-items: start;
+}
+
+.research_title {
+  font-size: 40px;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.research_title_hidden {
+  color: #888;
+  font-size: 40px;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.research_title_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion_closed {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s;
+  overflow: hidden;
+}
+
+.accordion_open {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.4s;
+  overflow: hidden;
+}
+
+.accordion_inner {
+  overflow: hidden; 
+}
+
+.research_desc {
+  min-height: 0;
+  color: #555;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  padding-top: 20px;
+}
+
+.pointer {
+  transition: 0.4s;
+}
+
+.pointer_reverse {
+  transform: rotate(-180deg);
+  transition: 0.4s;
+}
+
+.contact_container {
+  display: flex;
+  gap: 100px;
+  margin-left: 297px;
+}
+
+.contact_text {
+  color: #000;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.info_container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.contact_info_container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact_info {
+  color: #555;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+@media (max-width: 1200px) {
+  .introduce_desc {
+    margin-left: 100px;
+  }
+}
