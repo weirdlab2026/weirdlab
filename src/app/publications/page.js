@@ -16,16 +16,8 @@ export default async function Publication() {
   console.log(post);
 
   return (
-      <div>
-          <h1>Publication</h1>
-          <div>
-          test 테스트
-          <PubCard pubData={JSON.parse(JSON.stringify(post))}/>
-
-          {
-            hasToken ? <Link href="/publications/post">post</Link> : null
-          }
-        </div>
-      </div>
-    );
+    <div>
+      <PubCard pubData={JSON.parse(JSON.stringify(post))} hasToken={hasToken}/>
+    </div>
+  );
 }

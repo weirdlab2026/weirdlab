@@ -1,0 +1,206 @@
+.pro_detail_container {
+  display: flex;
+  margin-top: 80px;
+  justify-content: space-between;
+  align-items: start;
+  flex: 1;
+}
+
+.back_container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  position: sticky;
+  top: 80px;
+  flex-shrink: 0;
+}
+
+.back_btn_container {
+  transform: rotate(-90deg);
+}
+
+.back_text {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.pro_decs_container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1110px;
+  width: 100%;
+  flex: 1;
+  margin-left: 374px;
+}
+
+.pro_title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.pro_en_title {
+  color: #888;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-top: 10px;
+}
+
+.pro_contents {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  margin: 40px 0 60px 0;
+}
+
+.pro_info_container {
+  display: flex;
+  gap: 100px;
+  padding: 40px 0;
+  width: 100%;
+  border-top: 1px solid #000;
+}
+
+.pro_info_title {
+  color: #888;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.pro_info_desc {
+  color: #000;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 10px;
+  white-space: pre-line;
+}
+
+.pro_detail_img_container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 40px 0 100px 0;
+}
+
+.pro_detail_img {
+  width: 100%;
+}
+
+.select_group {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #888;
+  font-weight: 400;
+  cursor: pointer;
+  background: #eee;
+  width: 180px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pro_detail_content_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.pro_detail_img_container2 {
+  position: relative;  
+  width: 100%;
+}
+
+.pro_detail_img_container2 img {
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+.drop_field {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  margin-bottom: 40px;
+  color: #888;
+  transition: 0.4s;
+}
+
+.delete_btn {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.pdf_check_field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #eee;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.pdf_check_field span {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px;
+  color: #555;
+}
+
+.submit_btn {
+  width: 100%; 
+  padding: 20px; 
+  color: white; 
+  border: none; 
+  font-size: 20px; 
+  font-weight: 500;
+  font-family: 'pretendard';
+  margin-bottom: 100px;
+}
+
+.pdf_download_container {
+  margin: 30px 0 60px 0;
+  cursor: pointer;
+}
+
+.pdf_download_container a {
+  text-decoration: none;
+}
+
+.pdf_download_text_container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pdf_download_btn {
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #000;
+}

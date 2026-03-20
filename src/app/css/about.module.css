@@ -10,10 +10,14 @@
   flex-direction: column;
   gap: 150px;
   margin-bottom: 100px;
+  width: 100%;
+  max-width: 1600px;
 }
 
 .introduce_container {
   display: flex;
+  justify-content: space-between;
+  gap: 310px;
 }
 
 .introduce_text {
@@ -24,11 +28,12 @@
 }
 
 .introduce_desc {
+  flex: 1;
+  max-width: 1110px;
   color: #555;
   font-size: 20px;
   font-weight: 400;
   line-height: 32px;
-  margin-left: 297px;
 }
 
 .research_container {
@@ -38,7 +43,6 @@
   padding: 40px 0;
   border-top: 1px solid #000;
   cursor: pointer;
-  margin-left: 297px;
   align-items: start;
 }
 
@@ -99,7 +103,8 @@
 .contact_container {
   display: flex;
   gap: 100px;
-  margin-left: 297px;
+  max-width: 1110px;
+  flex: 1;
 }
 
 .contact_text {
@@ -132,10 +137,4 @@
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: from-font;
-}
-
-@media (max-width: 1200px) {
-  .introduce_desc {
-    margin-left: 100px;
-  }
 }

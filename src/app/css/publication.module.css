@@ -1,8 +1,7 @@
-.pro_container {
+.pub_container {
   width: 100%;
   max-width: 1600px;
   display: flex;
-  gap: 70px;
   margin-top: 80px;
   justify-content: space-between;
   align-items: flex-start;
@@ -14,7 +13,7 @@
   cursor: pointer;
 }
 
-.category_container {
+.pub_category_container {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -24,7 +23,7 @@
   flex-shrink: 0;
 }
 
-.category_item {
+.pub_category_item {
   cursor: pointer;
   font-size: 40px;
   font-weight: 600;
@@ -33,7 +32,7 @@
   position: relative;
 }
 
-.category_active {
+.pub_category_active {
   font-size: 26px;
   font-weight: 500;
   padding: 6px 20px;
@@ -46,7 +45,7 @@
   transform: translate(100%, -50%);
 }
 
-.category_inactive {
+.pub_category_inactive {
   opacity: 0;
   font-size: 0px;
   font-weight: 500;
@@ -60,77 +59,56 @@
   transform: translate(100%, -50%);
 }
 
-.pro_card_container {
+.pub_card_container {
   display: flex;
-  gap: 60px 40px;
-  flex-wrap: wrap;
-  flex: 1;
-  min-width: 0;
+  flex-direction: column;
   max-width: 1110px;
-  margin-bottom: 100px;
-  align-items: flex-start;
+  margin: 0 0 100px 70px;
+  flex: 1;
 }
 
-.pro_card_none {
+.pub_card_none {
   font-size: 20px;
   font-weight: 500;
   color: #ccc;
 }
 
-.pro_card_0,
-.pro_card_1 {
-  flex: 0 1 calc(50% - 20px);  cursor: pointer;
-}
-
-.pro_card_2 {
-  flex: 0 0 100%;
+.pub_card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  border-top: 1px solid #000;
   cursor: pointer;
 }
 
-@media (max-width: 1160px) {
-  .pro_card_0,
-  .pro_card_1 {
-    flex: 0 0 100%;
-    cursor: pointer;
-  }
+.pub_card_title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  margin-bottom: 10px;
 }
 
-.pro_img_container {
-  width: 100%;
-  background: #eee;
+.pub_card_entitle {
+  color: #888;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-bottom: 40px;
 }
 
-.pro_card_0 img,
-.pro_card_1 img,
-.pro_card_2 img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: 0.3s;
-}
-
-.pro_card_0 img:hover,
-.pro_card_1 img:hover,
-.pro_card_2 img:hover {
-  transform: scale(0.93);
-  transition: 0.3s;
-}
-
-
-.pro_text_container {
+.pub_card_info_container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
 }
 
-.pro_title {
-  font-size: 32px;
-  font-weight: 500;
-}
-
-.pro_text_category {
-  color: #888;
+.pub_card_members {
   font-size: 20px;
   font-weight: 500;
+}
+
+.pub_card_category_date_container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }

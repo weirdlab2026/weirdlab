@@ -1,5 +1,16 @@
 html {
   font-family: 'Pretendard', sans-serif;
+  overflow: auto;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* IE, Edge (구버전) */
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -10,10 +21,17 @@ body {
 
 .main_color {
   color: #6832FC;
+  transition: 0.4s;
 }
 
 .color888 {
   color: #888;
+  transition: 0.4s;
+}
+
+.colorAAA {
+  color: #aaa;
+  transition: 0.4s;
 }
 
 .pointer {
@@ -27,10 +45,12 @@ body {
 }
 
 .content {
-  max-width: 1520px;
   padding: 0 40px;
-  margin: 0;
+  margin: 0 auto;
   flex: 1;
+  max-width: 1680px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header_gnb {
@@ -40,7 +60,7 @@ body {
 }
 
 .header_container {
-  max-width: 1520px;
+  max-width: 1600px;
   padding: 0 40px;
   margin: 0 auto;
   display: flex;
@@ -53,12 +73,12 @@ body {
 }
 
 .Link_Container {
-  margin-left: 297px;
   max-width: 1110px;
   flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 311.8px;
 }
 
 .gnb_link {
@@ -94,7 +114,7 @@ body {
 }
 
 .Footer_Container {
-  max-width: 1520px;
+  max-width: 1600px;
   padding: 0 40px;
   margin: 0 auto;
   display: flex;

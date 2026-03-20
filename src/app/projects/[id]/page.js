@@ -4,6 +4,8 @@ import Link from "next/link";
 import { use } from "react";
 import DeleteBtn from "@/app/components/deleteBtn";
 import { cookies } from "next/headers";
+import styles from "@/app/css/projectDetail.module.css";
+import TopBtn from '@/app/components/icons/topBtn';
 
 export default async function ProDetail({ params }) {
 
@@ -17,19 +19,54 @@ export default async function ProDetail({ params }) {
   console.log(post);
 
   return (
-    <div>
-      <Link href="/projects">뒤로가기</Link>
-      <h1>{post.title}</h1>
-      <p>{post.contents}</p>
-      {post.images && post.images.length > 0 && (
-        post.images.map((imgUrl, idx) => (
-          <img key={idx} src={imgUrl} alt="" style={{ width: '300px', height: '300px', objectFit: 'cover', marginRight: '20px' }} />
-        ))
-      )}
-      <div>
-        {token ? <Link href={`/projects/edit/${post._id.toString()}`}>수정</Link> : null}
-        {token ? <DeleteBtn id={post._id.toString()} url={"/api/projects"} /> : null}
+    <div className={styles.pro_detail_container}>
+
+      <Link href="/projects" className={styles.back_container}>
+        <div className={styles.back_btn_container}><TopBtn /></div>
+        <div className={`${styles.back_text} main_color`}>Back</div>
+      </Link>
+
+      <div className={styles.pro_decs_container}>
+        <div className={styles.pro_title}>{post.title}</div>
+        <div className={styles.pro_en_title}>{post.enTitle}</div>
+        <div className={styles.pro_contents}>{post.contents}</div>
+        
+        <div className={styles.pro_info_container}>
+          <div>
+            <div className={styles.pro_info_title}>Group</div>
+            <div className={styles.pro_info_desc}>
+              {post.group.replace(' ', '\n')}
+            </div>
+          </div>
+          <div>
+            <div className={styles.pro_info_title}>Category</div>
+            <div className={styles.pro_info_desc}>{post.category}</div>
+          </div>
+          <div>
+            <div className={styles.pro_info_title}>Upload Date</div>
+            <div className={styles.pro_info_desc}>{post.uploadDate}</div>
+          </div>
+          <div>
+            <div className={styles.pro_info_title}>Members</div>
+            <div className={styles.pro_info_desc}>{post.members}</div>
+          </div>
+        </div>
+
+        <div className={styles.pro_detail_img_container}>
+        {post.images && post.images.length > 0 && (
+          post.images.map((imgUrl, idx) => (
+            <img key={idx} src={imgUrl} className={styles.pro_detail_img} />
+          ))
+        )}
+        </div>
+
+        <div>
+          {token ? <Link href={`/projects/edit/${post._id.toString()}`}>수정</Link> : null}
+          {token ? <DeleteBtn id={post._id.toString()} url={"/api/projects"} /> : null}
+        </div>
       </div>
+
+      
     </div>
   );
 }

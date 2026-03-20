@@ -70,9 +70,11 @@ export default function About() {
         </div>
 
         <div className={styles.introduce_container}>
+
           <div className={styles.introduce_text}>
             Contact
           </div>
+
           <div className={styles.contact_container}>
             <div className={styles.contact_text}>
               <span className="color888">Prof.</span><br/>WOOJEONG CHON
@@ -94,6 +96,7 @@ export default function About() {
               </div>
             </div>
           </div>
+
         </div>
 
       </div>

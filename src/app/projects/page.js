@@ -17,13 +17,10 @@ export default async function Project() {
   console.log(post);
 
   return (
-    <div className={styles.project_container}>
+    <div>
 
-      <ProCard pubData={JSON.parse(JSON.stringify(post))}/>
+      <ProCard pubData={JSON.parse(JSON.stringify(post))} hasToken={hasToken}/>
 
-      {
-        hasToken ? <Link href="/projects/post">post</Link> : null
-      }
     </div>
   );
 }

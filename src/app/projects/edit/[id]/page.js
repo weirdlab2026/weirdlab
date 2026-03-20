@@ -11,7 +11,6 @@ export default async function ProEditPage({ params }) {
 
   return (
     <div>
-      <Link href={`/projects/${post._id.toString()}`}>뒤로가기</Link>
       <EditForm post={JSON.parse(JSON.stringify(post))} />
     </div>
   );

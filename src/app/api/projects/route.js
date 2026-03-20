@@ -15,7 +15,12 @@ export async function POST(req) {
     
     await db.collection("post").insertOne({
       title: body.title,
+      enTitle: body.enTitle,
       contents: body.contents,
+      group: body.group,
+      category: body.category,
+      uploadDate: body.uploadDate,
+      members: body.members,
       source: body.source,
       images: body.images || [],
       createdAt: new Date(),    
@@ -96,7 +101,13 @@ export async function PUT(req) {
       { _id: targetId },
       { $set: { 
           title: body.title, 
-          contents: body.contents, 
+          enTitle: body.enTitle,
+          contents: body.contents,
+          group: body.group,
+          category: body.category,
+          uploadDate: body.uploadDate,
+          members: body.members,
+          source: body.source,
           images: newImages 
         } 
       }
