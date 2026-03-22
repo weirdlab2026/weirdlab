@@ -43,7 +43,7 @@ export default async function ProDetail({ params }) {
             <div className={styles.pro_info_desc}>{post.category}</div>
           </div>
           <div>
-            <div className={styles.pro_info_title}>Upload Date</div>
+            <div className={styles.pro_info_title}>Date</div>
             <div className={styles.pro_info_desc}>{post.uploadDate}</div>
           </div>
           <div>

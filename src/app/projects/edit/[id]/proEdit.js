@@ -245,19 +245,10 @@ export default function EditForm({ post }) {
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         onClick={() => inputFileRef.current.click()}
+        className={styles.drop_field}
         style={{
-          width: '100%',
-          height: '180px',
           border: isDragging ? '1px solid #6832FC' : '1px dashed #888',
           backgroundColor: isDragging ? '#eaf4ff' : '#fafafa',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          cursor: 'pointer',
-          marginBottom: '40px',
-          color: '#888',
-          transition: '0.4s'
         }}
       >        
           <p style={{ textAlign: 'center', fontFamily: 'pretendard', fontSize: '18px', fontWeight: '500', lineHeight: '26px'}}>수정할 이미지를 드래그 앤 드롭<br/>또는 클릭하여 선택</p>

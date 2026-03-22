@@ -37,7 +37,7 @@ export default function ProCard({ pubData, hasToken }) {
           hasToken ? <Link href="/projects/post">post</Link> : null
         }
 
-        <div className={styles.top_btn_container} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <div className={styles.top_btn_container}>
           <TopBtn />
         </div>
       </div>

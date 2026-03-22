@@ -3,12 +3,20 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState, useRef } from "react";
+import styles from "../../../css/projectDetail.module.css";
+import Link from "next/link";
+import TopBtn from "@/app/components/icons/topBtn";
 
 export default function EditForm({ post }) {
   const router = useRouter();
 
   const [title, setTitle] = useState(post.title);
+  const [enTitle, setEnTitle] = useState(post.enTitle);
   const [contents, setContents] = useState(post.contents);
+  const [group, setGroup] = useState(post.group);
+  const [uploadDate, setUploadData] = useState(post.uploadDate);
+
+  let categoryList = ["Notice", "Event", "Activity", "Others"]
 
   // existingImages: 서버에 이미 올라가 있는 이미지 URL들
   const [existingImages, setExistingImages] = useState(post.images || []);
@@ -103,78 +111,153 @@ export default function EditForm({ post }) {
     processFiles(e.dataTransfer.files);
   };
 
-  return (
-    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-      <h1>게시글 수정</h1>
+  const handleDateChange = (e) => {
+    let value = e.target.value;
+    value = value.replace(/\D/g, "");
+    value = value.slice(0, 6);
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' }}>
-        <label>제목</label>
+    let year = value.slice(0, 4);
+    let month = value.slice(4, 6);
+
+    if (month.length === 1) {
+      if (parseInt(month) > 1) {
+        month = "0" + month;
+      }
+    }
+
+    if (month.length === 2) {
+      let monthNum = parseInt(month);
+
+      if (monthNum === 0) month = "01";
+      if (monthNum > 12) month = "12";
+    }
+
+    if (month.length > 0) {
+      value = `${year}.${month}`;
+    } else {
+      value = year;
+    }
+    setUploadData(value);
+  };
+
+  return (
+    <div className={styles.pro_detail_container}>
+
+      <Link href="/news" className={styles.back_container}>
+        <div className={styles.back_btn_container}><TopBtn /></div>
+        <div className={`${styles.back_text} main_color`}>Back</div>
+      </Link>
+
+      <div className={styles.pro_decs_container}>
         <input 
           type="text" 
-          value={title} 
-          onChange={(e) => setTitle(e.target.value)} 
-          style={{ padding: '8px' }}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="영어 뉴스 제목"
+          value={title}
+          className={styles.pro_title}
+          style={{border: 'none', outline: 'none', fontFamily: 'Pretendard'}}
         />
-        <label>내용</label>
-        <textarea 
-          value={contents} 
-          onChange={(e) => setContents(e.target.value)} 
-          style={{ padding: '8px', minHeight: '150px' }}
+        <input 
+          type="text" 
+          onChange={(e) => setEnTitle(e.target.value)}
+          value={enTitle}
+          placeholder="한글 뉴스 제목"
+          className={styles.pro_en_title}
+          style={{border: 'none', outline: 'none', fontFamily: 'Pretendard', marginBottom: '60px'}}
         />
-      </div>
 
-      {/* --- 이미지 관리 영역 --- */}
-      <h3>이미지 수정</h3>
-      
-      {/* 1. 드래그 앤 드롭 영역 */}
-      <div
+        <div className={styles.pro_info_container}>
+          <div>
+            <div className={styles.pro_info_title}>Group</div>
+            <div className={styles.pro_info_desc}>
+              <div className={styles.pro_info_desc}
+              style={{border: 'none', outline: 'none', fontFamily: 'pretendard', width: '212px', marginBottom: '20px'}}>
+                {group || "그룹, 아래에서 선택"}
+              </div>
+              {
+                categoryList.map((item, index)=>{
+                  return (
+                    <div key={index} onClick={() => setGroup(item)} className={styles.select_group}>
+                      {item}
+                    </div>
+                  )
+                })
+              }
+            </div>
+          </div>
+
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <div className={styles.pro_info_title}>Upload Date</div>
+            <input 
+              type="text" 
+              placeholder="숫자만(예:2000.12)"
+              value={uploadDate}
+              onChange={handleDateChange}
+              className={styles.pro_info_desc}
+              style={{border: 'none', outline: 'none', fontFamily: 'pretendard', width: '212px'}}
+            />
+          </div>
+        </div>
+
+        <textarea 
+          placeholder="내용"
+          onChange={(e) => setContents(e.target.value)}
+          value={contents}
+          className={styles.pro_contents}
+          style={{border: 'none', outline: 'none', resize: 'none', fontFamily: 'Pretendard', height: '200px'}}
+        />
+
+        <div
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         onClick={() => inputFileRef.current.click()}
+        className={styles.drop_field}
         style={{
-          width: '100%', height: '100px',
-          border: isDragging ? '3px solid #0070f3' : '2px dashed #ccc',
+          border: isDragging ? '1px solid #6832FC' : '1px dashed #888',
           backgroundColor: isDragging ? '#eaf4ff' : '#fafafa',
-          borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-          cursor: 'pointer', marginBottom: '20px', color: '#666'
         }}
-      >
-        <p>추가할 이미지를 드래그하거나 클릭하세요</p>
+      >        
+          <p style={{ textAlign: 'center', fontFamily: 'pretendard', fontSize: '18px', fontWeight: '500', lineHeight: '26px'}}>수정할 이미지를 드래그 앤 드롭<br/>또는 클릭하여 선택</p>
+        </div>
+        <input 
+        ref={inputFileRef} 
+        type="file"
+        accept="image/*"
+        multiple
+        onChange={handleFileChange}
+        style={{ display: 'none' }}
+        />
+
+        <div className={styles.pro_detail_content_container}>
+          
+          {/* A. 기존 이미지들 */}
+          {existingImages.map((url, idx) => (
+            <div key={`old-${idx}`} className={styles.pro_detail_img_container2}>
+              <img src={url} className={styles.pro_detail_img} />
+              <button onClick={() => removeExistingImage(idx)} className={styles.delete_btn}>X</button>
+            </div>
+          ))}
+
+          {/* B. 새로 추가한 이미지들 */}
+          {newPreviews.map((url, idx) => (
+            <div key={`new-${idx}`} className={styles.pro_detail_img_container2}>
+              <img src={url} className={styles.pro_detail_img} />
+              <button onClick={() => removeNewFile(idx)} className={styles.delete_btn}>X</button>
+            </div>
+          ))}
+        </div>
+
+        <button
+          onClick={handleSubmit}
+          disabled={isUploading}
+          className={styles.submit_btn}
+          style={{background: isUploading ? '#ccc' : '#6832FC'}}
+        >
+          {isUploading ? "수정 중..." : "수정 완료"}
+        </button>
+
       </div>
-      <input ref={inputFileRef} type="file" accept="image/*" multiple onChange={handleFileChange} style={{ display: 'none' }} />
-
-      {/* 2. 이미지 미리보기 및 삭제 영역 */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px', marginBottom: '20px' }}>
-        
-        {/* A. 기존 이미지들 */}
-        {existingImages.map((url, idx) => (
-          <div key={`old-${idx}`} style={{ position: 'relative', aspectRatio: '1/1' }}>
-            <img src={url} alt="existing" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px', border: '2px solid #ddd' }} />
-            <button 
-              onClick={() => removeExistingImage(idx)}
-              style={{ position: 'absolute', top: 5, right: 5, background: 'red', color: 'white', border: 'none', borderRadius: '50%', width: 24, height: 24, cursor: 'pointer' }}
-            >X</button>
-            <span style={{ position: 'absolute', bottom: 5, left: 5, background: 'rgba(0,0,0,0.5)', color: 'white', fontSize: '10px', padding: '2px 5px', borderRadius: '3px'}}>기존</span>
-          </div>
-        ))}
-
-        {/* B. 새로 추가한 이미지들 */}
-        {newPreviews.map((url, idx) => (
-          <div key={`new-${idx}`} style={{ position: 'relative', aspectRatio: '1/1' }}>
-            <img src={url} alt="new" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px', border: '2px solid #0070f3' }} />
-            <button 
-              onClick={() => removeNewFile(idx)}
-              style={{ position: 'absolute', top: 5, right: 5, background: 'black', color: 'white', border: 'none', borderRadius: '50%', width: 24, height: 24, cursor: 'pointer' }}
-            >X</button>
-            <span style={{ position: 'absolute', bottom: 5, left: 5, background: '#0070f3', color: 'white', fontSize: '10px', padding: '2px 5px', borderRadius: '3px'}}>신규</span>
-          </div>
-        ))}
-      </div>
-
-      <button onClick={handleSubmit} disabled={isUploading} style={{ padding: '10px 20px', cursor: 'pointer' }}>
-        {isUploading ? "수정 중..." : "수정 완료"}
-      </button>
     </div>
   );
 }

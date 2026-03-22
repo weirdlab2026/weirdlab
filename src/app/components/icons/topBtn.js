@@ -1,6 +1,14 @@
+'use client'
+
 export default function TopBtn() {
+
+  const handleScroll = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
 <svg 
+  onClick={handleScroll}
   xmlns="http://www.w3.org/2000/svg" 
   width="48" 
   height="48" 

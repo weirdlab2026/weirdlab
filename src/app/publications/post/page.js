@@ -19,7 +19,7 @@ export default function Post() {
   const [members, setMembers] = useState("");
   const [source, setSource] = useState("Weird Lab");
 
-  let categoryList = ["All Papers", "Journal Papers", "Conference Papers", "Others"]
+  let categoryList = ["Journal Papers", "Conference Papers", "Others"]
 
   // ✅ 단일 PDF 파일
   const [file, setFile] = useState(null);
@@ -189,7 +189,7 @@ export default function Post() {
           </div>
 
           <div>
-            <div className={styles.pro_info_title}>Upload Date</div>
+            <div className={styles.pro_info_title}>Date</div>
             <input 
               type="text" 
               placeholder="숫자만(예:2000.12)"

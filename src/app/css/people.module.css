@@ -1,0 +1,107 @@
+.people_container {
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  gap: 70px;
+  margin-top: 80px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.people_left_container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 420px;
+  flex-shrink: 0;
+}
+
+.prof_photo {
+  width: 300px;
+  height: 300px;
+  background: #eee;
+  border-radius: 100%;
+}
+
+.top_btn_container {
+  position: fixed;
+  bottom: 136px;
+  cursor: pointer;
+}
+
+.people_card_container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  max-width: 1110px;
+  margin-bottom: 100px;
+  align-items: flex-start;
+}
+
+.prof {
+  color: #888;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.prof_name {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.contact_text {
+  color: #000;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.info_container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.contact_info_container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact_info {
+  color: #555;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+.edawtoex_container {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 80px;
+}
+
+.edawtoex_title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.edawtoex_text {
+  color: #555;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 6px;
+}
+
+.text_student {
+  font-size: 40px;
+  font-weight: 600;
+}

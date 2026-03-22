@@ -224,7 +224,7 @@ export default function Post() {
           </div>
 
           <div>
-            <div className={styles.pro_info_title}>Upload Date</div>
+            <div className={styles.pro_info_title}>Date</div>
             <input 
               type="text" 
               placeholder="숫자만(예:2000.12)"
@@ -272,7 +272,6 @@ export default function Post() {
           style={{ display: 'none' }}
         />
 
-        {/* 미리보기 그리드 삭제 버튼 추가*/}
         {previews.length > 0 && (
           <div className={styles.pro_detail_content_container}>
             {previews.map((url, index) => (
@@ -293,7 +292,7 @@ export default function Post() {
           }}
           className={styles.submit_btn}
         >
-          {isUploading ? '업로드 중...' : '게시글 등록하기'}
+          {isUploading ? '프로젝트 업로드 중...' : '프로젝트 등록하기'}
         </button>
       </div>
 

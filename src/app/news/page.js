@@ -16,16 +16,8 @@ export default async function News() {
   console.log(post);
 
   return (
-      <div>
-          <h1>News</h1>
-          <div>
-          test 테스트
-          <NewsCard newsData={JSON.parse(JSON.stringify(post))}/>
-
-          {
-            hasToken ? <Link href="/news/post">post</Link> : null
-          }
-        </div>
-      </div>
-    );
+    <div>
+      <NewsCard newsData={JSON.parse(JSON.stringify(post))} hasToken={hasToken}/>
+    </div>
+  );
 }

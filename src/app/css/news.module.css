@@ -1,7 +1,8 @@
-.pub_container {
+.pro_container {
   width: 100%;
   max-width: 1600px;
   display: flex;
+  gap: 70px;
   margin-top: 80px;
   justify-content: space-between;
   align-items: flex-start;
@@ -13,7 +14,7 @@
   cursor: pointer;
 }
 
-.pub_category_container {
+.category_container {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -23,7 +24,7 @@
   flex-shrink: 0;
 }
 
-.pub_category_item {
+.category_item {
   cursor: pointer;
   font-size: 40px;
   font-weight: 600;
@@ -32,7 +33,7 @@
   position: relative;
 }
 
-.pub_category_active {
+.category_active {
   font-size: 26px;
   font-weight: 500;
   padding: 6px 20px;
@@ -45,7 +46,7 @@
   transform: translate(100%, -50%);
 }
 
-.pub_category_inactive {
+.category_inactive {
   opacity: 0;
   font-size: 0px;
   font-weight: 500;
@@ -59,21 +60,23 @@
   transform: translate(100%, -50%);
 }
 
-.pub_card_container {
+.news_card_container {
   display: flex;
   flex-direction: column;
-  max-width: 1110px;
-  margin: 0 0 100px 70px;
   flex: 1;
+  min-width: 0;
+  max-width: 1110px;
+  margin-bottom: 100px;
+  align-items: flex-start;
 }
 
-.pub_card_none {
+.news_card_none {
   font-size: 20px;
   font-weight: 500;
   color: #ccc;
 }
 
-.pub_card {
+.news_card {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -84,18 +87,19 @@
   transition: 0.3s;
 }
 
-.pub_card:hover {
+.news_card:hover {
   transform: scale(0.97);
+  transition: 0.3s;
 }
 
-.pub_card_title {
+.news_card_title {
   font-size: 40px;
   font-weight: 500;
   line-height: 48px;
   margin-bottom: 10px;
 }
 
-.pub_card_entitle {
+.news_card_entitle {
   color: #888;
   font-size: 24px;
   font-weight: 500;
@@ -103,18 +107,20 @@
   margin-bottom: 40px;
 }
 
-.pub_card_info_container {
-  display: flex;
-  justify-content: space-between;
+.news_card_img_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
 }
 
-.pub_card_members {
+.news_card_img_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news_card_date {
   font-size: 20px;
   font-weight: 500;
-}
-
-.pub_card_category_date_container {
-  display: flex;
-  gap: 10px;
-  align-items: center;
 }
